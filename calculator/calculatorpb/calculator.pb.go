@@ -147,10 +147,130 @@ func (m *SumResponse) GetResult() int32 {
 	return 0
 }
 
+type PrimeNumberDecomposition struct {
+	A                    int32    `protobuf:"varint,1,opt,name=a,proto3" json:"a,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *PrimeNumberDecomposition) Reset()         { *m = PrimeNumberDecomposition{} }
+func (m *PrimeNumberDecomposition) String() string { return proto.CompactTextString(m) }
+func (*PrimeNumberDecomposition) ProtoMessage()    {}
+func (*PrimeNumberDecomposition) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7f42938f8c8365cf, []int{3}
+}
+
+func (m *PrimeNumberDecomposition) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PrimeNumberDecomposition.Unmarshal(m, b)
+}
+func (m *PrimeNumberDecomposition) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PrimeNumberDecomposition.Marshal(b, m, deterministic)
+}
+func (m *PrimeNumberDecomposition) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PrimeNumberDecomposition.Merge(m, src)
+}
+func (m *PrimeNumberDecomposition) XXX_Size() int {
+	return xxx_messageInfo_PrimeNumberDecomposition.Size(m)
+}
+func (m *PrimeNumberDecomposition) XXX_DiscardUnknown() {
+	xxx_messageInfo_PrimeNumberDecomposition.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PrimeNumberDecomposition proto.InternalMessageInfo
+
+func (m *PrimeNumberDecomposition) GetA() int32 {
+	if m != nil {
+		return m.A
+	}
+	return 0
+}
+
+type PrimeNumberDecompositionRequest struct {
+	PrimeNumberDecomposition *PrimeNumberDecomposition `protobuf:"bytes,1,opt,name=primeNumberDecomposition,proto3" json:"primeNumberDecomposition,omitempty"`
+	XXX_NoUnkeyedLiteral     struct{}                  `json:"-"`
+	XXX_unrecognized         []byte                    `json:"-"`
+	XXX_sizecache            int32                     `json:"-"`
+}
+
+func (m *PrimeNumberDecompositionRequest) Reset()         { *m = PrimeNumberDecompositionRequest{} }
+func (m *PrimeNumberDecompositionRequest) String() string { return proto.CompactTextString(m) }
+func (*PrimeNumberDecompositionRequest) ProtoMessage()    {}
+func (*PrimeNumberDecompositionRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7f42938f8c8365cf, []int{4}
+}
+
+func (m *PrimeNumberDecompositionRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PrimeNumberDecompositionRequest.Unmarshal(m, b)
+}
+func (m *PrimeNumberDecompositionRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PrimeNumberDecompositionRequest.Marshal(b, m, deterministic)
+}
+func (m *PrimeNumberDecompositionRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PrimeNumberDecompositionRequest.Merge(m, src)
+}
+func (m *PrimeNumberDecompositionRequest) XXX_Size() int {
+	return xxx_messageInfo_PrimeNumberDecompositionRequest.Size(m)
+}
+func (m *PrimeNumberDecompositionRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_PrimeNumberDecompositionRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PrimeNumberDecompositionRequest proto.InternalMessageInfo
+
+func (m *PrimeNumberDecompositionRequest) GetPrimeNumberDecomposition() *PrimeNumberDecomposition {
+	if m != nil {
+		return m.PrimeNumberDecomposition
+	}
+	return nil
+}
+
+type PrimeNumberDecompositionResponse struct {
+	Result               string   `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *PrimeNumberDecompositionResponse) Reset()         { *m = PrimeNumberDecompositionResponse{} }
+func (m *PrimeNumberDecompositionResponse) String() string { return proto.CompactTextString(m) }
+func (*PrimeNumberDecompositionResponse) ProtoMessage()    {}
+func (*PrimeNumberDecompositionResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7f42938f8c8365cf, []int{5}
+}
+
+func (m *PrimeNumberDecompositionResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PrimeNumberDecompositionResponse.Unmarshal(m, b)
+}
+func (m *PrimeNumberDecompositionResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PrimeNumberDecompositionResponse.Marshal(b, m, deterministic)
+}
+func (m *PrimeNumberDecompositionResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PrimeNumberDecompositionResponse.Merge(m, src)
+}
+func (m *PrimeNumberDecompositionResponse) XXX_Size() int {
+	return xxx_messageInfo_PrimeNumberDecompositionResponse.Size(m)
+}
+func (m *PrimeNumberDecompositionResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_PrimeNumberDecompositionResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PrimeNumberDecompositionResponse proto.InternalMessageInfo
+
+func (m *PrimeNumberDecompositionResponse) GetResult() string {
+	if m != nil {
+		return m.Result
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*Sum)(nil), "calculator.Sum")
 	proto.RegisterType((*SumRequest)(nil), "calculator.SumRequest")
 	proto.RegisterType((*SumResponse)(nil), "calculator.SumResponse")
+	proto.RegisterType((*PrimeNumberDecomposition)(nil), "calculator.PrimeNumberDecomposition")
+	proto.RegisterType((*PrimeNumberDecompositionRequest)(nil), "calculator.PrimeNumberDecompositionRequest")
+	proto.RegisterType((*PrimeNumberDecompositionResponse)(nil), "calculator.PrimeNumberDecompositionResponse")
 }
 
 func init() {
@@ -158,19 +278,24 @@ func init() {
 }
 
 var fileDescriptor_7f42938f8c8365cf = []byte{
-	// 181 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xd2, 0x48, 0x4e, 0xcc, 0x49,
-	0x2e, 0xcd, 0x49, 0x2c, 0xc9, 0x2f, 0xd2, 0x47, 0x30, 0x0b, 0x92, 0x90, 0x38, 0x7a, 0x05, 0x45,
-	0xf9, 0x25, 0xf9, 0x42, 0x5c, 0x08, 0x11, 0x25, 0x45, 0x2e, 0xe6, 0xe0, 0xd2, 0x5c, 0x21, 0x1e,
-	0x2e, 0xc6, 0x44, 0x09, 0x46, 0x05, 0x46, 0x0d, 0xd6, 0x20, 0xc6, 0x44, 0x10, 0x2f, 0x49, 0x82,
-	0x09, 0xc2, 0x4b, 0x52, 0xd2, 0xe7, 0xe2, 0x0a, 0x2e, 0xcd, 0x0d, 0x4a, 0x2d, 0x2c, 0x4d, 0x2d,
-	0x2e, 0x11, 0x52, 0xe4, 0x62, 0x2e, 0x2e, 0xcd, 0x05, 0xab, 0xe5, 0x36, 0xe2, 0xd7, 0x43, 0x32,
-	0x1c, 0xa4, 0x08, 0x24, 0xa7, 0xa4, 0xca, 0xc5, 0x0d, 0xd6, 0x50, 0x5c, 0x90, 0x9f, 0x57, 0x9c,
-	0x2a, 0x24, 0xc6, 0xc5, 0x56, 0x94, 0x5a, 0x5c, 0x9a, 0x53, 0x02, 0xb5, 0x00, 0xca, 0x33, 0x72,
-	0x03, 0x9b, 0x1b, 0x9c, 0x5a, 0x54, 0x96, 0x99, 0x9c, 0x2a, 0x64, 0x01, 0x71, 0x88, 0x18, 0xba,
-	0x89, 0x10, 0x6b, 0xa5, 0xc4, 0x31, 0xc4, 0x21, 0xa6, 0x2b, 0x31, 0x38, 0xf1, 0x45, 0xf1, 0x20,
-	0xfb, 0x37, 0x89, 0x0d, 0xec, 0x4b, 0x63, 0x40, 0x00, 0x00, 0x00, 0xff, 0xff, 0xc4, 0x83, 0xcf,
-	0x0b, 0x11, 0x01, 0x00, 0x00,
+	// 272 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x52, 0x4b, 0x4b, 0xc3, 0x40,
+	0x10, 0x76, 0x2d, 0x16, 0x9c, 0x16, 0xc5, 0x3d, 0xd4, 0xe0, 0xc5, 0x76, 0x51, 0x08, 0x28, 0xad,
+	0xd4, 0x8b, 0x78, 0x54, 0xcf, 0x22, 0xcd, 0xcd, 0x93, 0xd9, 0x30, 0x87, 0x40, 0xb6, 0xbb, 0xee,
+	0x43, 0xf0, 0xec, 0x9f, 0xf3, 0x67, 0x49, 0x92, 0x8d, 0x5d, 0x1f, 0x5b, 0x72, 0xcb, 0x37, 0xf9,
+	0x76, 0xbe, 0x07, 0x03, 0x69, 0x91, 0x57, 0x85, 0xab, 0x72, 0x2b, 0xf5, 0x62, 0xf3, 0xa9, 0x78,
+	0x00, 0xe6, 0x4a, 0x4b, 0x2b, 0x29, 0x6c, 0x26, 0x6c, 0x06, 0x83, 0xcc, 0x09, 0x3a, 0x06, 0x92,
+	0x27, 0x64, 0x4a, 0xd2, 0xbd, 0x15, 0xc9, 0x6b, 0xc4, 0x93, 0xdd, 0x16, 0x71, 0xb6, 0x00, 0xc8,
+	0x9c, 0x58, 0xe1, 0xab, 0x43, 0x63, 0xe9, 0x0c, 0x06, 0xc6, 0x89, 0x86, 0x3b, 0x5a, 0x1e, 0xce,
+	0x83, 0xe5, 0x35, 0xa9, 0xfe, 0xc7, 0xce, 0x61, 0xd4, 0x3c, 0x30, 0x4a, 0xae, 0x0d, 0xd2, 0x09,
+	0x0c, 0x35, 0x1a, 0x57, 0x59, 0x2f, 0xe0, 0x11, 0x4b, 0x21, 0x79, 0xd2, 0xa5, 0xc0, 0x47, 0x27,
+	0x38, 0xea, 0x07, 0x2c, 0xa4, 0x50, 0xd2, 0x94, 0xb6, 0x94, 0xeb, 0x9f, 0x7e, 0xd8, 0x07, 0x81,
+	0xd3, 0x18, 0xb5, 0xf3, 0xf5, 0x02, 0x89, 0x8a, 0x50, 0xbc, 0xd9, 0xb3, 0xd0, 0x6c, 0x74, 0x5d,
+	0x74, 0x0b, 0xbb, 0x85, 0x69, 0xdc, 0xc4, 0xbf, 0x59, 0xf7, 0xbb, 0xac, 0xcb, 0x4f, 0x02, 0x47,
+	0xf7, 0xdf, 0xea, 0x19, 0xea, 0xb7, 0xb2, 0x40, 0x7a, 0xd3, 0x96, 0x3f, 0xf9, 0xdd, 0x62, 0x1b,
+	0xe9, 0xe4, 0xf8, 0xcf, 0xbc, 0x55, 0x61, 0x3b, 0xf4, 0x7d, 0x4b, 0x77, 0x17, 0xbd, 0x72, 0x7a,
+	0x8d, 0xcb, 0x7e, 0xe4, 0x4e, 0xf8, 0x8a, 0xdc, 0x1d, 0x3c, 0x8f, 0xc3, 0xf3, 0xe2, 0xc3, 0xe6,
+	0xa8, 0xae, 0xbf, 0x02, 0x00, 0x00, 0xff, 0xff, 0x0d, 0xe7, 0xec, 0x61, 0x80, 0x02, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -181,66 +306,129 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// SumServiceClient is the client API for SumService service.
+// CalculatorServiceClient is the client API for CalculatorService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type SumServiceClient interface {
+type CalculatorServiceClient interface {
 	Sum(ctx context.Context, in *SumRequest, opts ...grpc.CallOption) (*SumResponse, error)
+	// Server Streaming
+	PrimeNumberDecomposition(ctx context.Context, in *PrimeNumberDecompositionRequest, opts ...grpc.CallOption) (CalculatorService_PrimeNumberDecompositionClient, error)
 }
 
-type sumServiceClient struct {
+type calculatorServiceClient struct {
 	cc *grpc.ClientConn
 }
 
-func NewSumServiceClient(cc *grpc.ClientConn) SumServiceClient {
-	return &sumServiceClient{cc}
+func NewCalculatorServiceClient(cc *grpc.ClientConn) CalculatorServiceClient {
+	return &calculatorServiceClient{cc}
 }
 
-func (c *sumServiceClient) Sum(ctx context.Context, in *SumRequest, opts ...grpc.CallOption) (*SumResponse, error) {
+func (c *calculatorServiceClient) Sum(ctx context.Context, in *SumRequest, opts ...grpc.CallOption) (*SumResponse, error) {
 	out := new(SumResponse)
-	err := c.cc.Invoke(ctx, "/calculator.SumService/Sum", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/calculator.CalculatorService/Sum", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// SumServiceServer is the server API for SumService service.
-type SumServiceServer interface {
+func (c *calculatorServiceClient) PrimeNumberDecomposition(ctx context.Context, in *PrimeNumberDecompositionRequest, opts ...grpc.CallOption) (CalculatorService_PrimeNumberDecompositionClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_CalculatorService_serviceDesc.Streams[0], "/calculator.CalculatorService/PrimeNumberDecomposition", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &calculatorServicePrimeNumberDecompositionClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type CalculatorService_PrimeNumberDecompositionClient interface {
+	Recv() (*PrimeNumberDecompositionResponse, error)
+	grpc.ClientStream
+}
+
+type calculatorServicePrimeNumberDecompositionClient struct {
+	grpc.ClientStream
+}
+
+func (x *calculatorServicePrimeNumberDecompositionClient) Recv() (*PrimeNumberDecompositionResponse, error) {
+	m := new(PrimeNumberDecompositionResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+// CalculatorServiceServer is the server API for CalculatorService service.
+type CalculatorServiceServer interface {
 	Sum(context.Context, *SumRequest) (*SumResponse, error)
+	// Server Streaming
+	PrimeNumberDecomposition(*PrimeNumberDecompositionRequest, CalculatorService_PrimeNumberDecompositionServer) error
 }
 
-func RegisterSumServiceServer(s *grpc.Server, srv SumServiceServer) {
-	s.RegisterService(&_SumService_serviceDesc, srv)
+func RegisterCalculatorServiceServer(s *grpc.Server, srv CalculatorServiceServer) {
+	s.RegisterService(&_CalculatorService_serviceDesc, srv)
 }
 
-func _SumService_Sum_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CalculatorService_Sum_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SumRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SumServiceServer).Sum(ctx, in)
+		return srv.(CalculatorServiceServer).Sum(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/calculator.SumService/Sum",
+		FullMethod: "/calculator.CalculatorService/Sum",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SumServiceServer).Sum(ctx, req.(*SumRequest))
+		return srv.(CalculatorServiceServer).Sum(ctx, req.(*SumRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _SumService_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "calculator.SumService",
-	HandlerType: (*SumServiceServer)(nil),
+func _CalculatorService_PrimeNumberDecomposition_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(PrimeNumberDecompositionRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(CalculatorServiceServer).PrimeNumberDecomposition(m, &calculatorServicePrimeNumberDecompositionServer{stream})
+}
+
+type CalculatorService_PrimeNumberDecompositionServer interface {
+	Send(*PrimeNumberDecompositionResponse) error
+	grpc.ServerStream
+}
+
+type calculatorServicePrimeNumberDecompositionServer struct {
+	grpc.ServerStream
+}
+
+func (x *calculatorServicePrimeNumberDecompositionServer) Send(m *PrimeNumberDecompositionResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+var _CalculatorService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "calculator.CalculatorService",
+	HandlerType: (*CalculatorServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Sum",
-			Handler:    _SumService_Sum_Handler,
+			Handler:    _CalculatorService_Sum_Handler,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "PrimeNumberDecomposition",
+			Handler:       _CalculatorService_PrimeNumberDecomposition_Handler,
+			ServerStreams: true,
+		},
+	},
 	Metadata: "calculator/calculatorpb/calculator.proto",
 }
