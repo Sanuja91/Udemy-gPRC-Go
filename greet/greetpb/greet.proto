@@ -3,6 +3,9 @@ syntax ="proto3";
 package greet;
 option go_package="greetpb";
 
+// Greeting is a Unary Message
+// GreetManyTimes is the Server Streaming to the Client
+// LongGreet is the Client Streaming to the Server
 message Greeting{
     string first_name = 1;
     string last_name = 2;
@@ -24,10 +27,22 @@ message GreetManyTimesResponse{
     string result = 1;
 }
 
+message LongGreetRequest{
+    Greeting greeting = 1;
+}
+
+message LongGreetResponse{
+    string result = 1;
+}
+
 service GreetService{
     // Unary
     rpc Greet(GreetRequest) returns (GreetResponse){};
 
     // Server Streaming
     rpc GreetManyTimes(GreetManyTimesRequest) returns (stream GreetManyTimesResponse);
+
+    // Client Streaming
+    rpc LongGreet(stream LongGreetRequest) returns (LongGreetResponse);
+
 }
