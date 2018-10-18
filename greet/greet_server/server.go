@@ -37,7 +37,7 @@ func (*server) GreetManyTimes(req *greetpb.GreetManyTimesRequest, stream greetpb
 			Result: result,
 		}
 		stream.Send(res)
-		time.Sleep(1000 + time.Millisecond)
+		time.Sleep(1000 + time.Second)
 	}
 	return nil
 }
