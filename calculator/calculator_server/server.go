@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"io"
 	"log"
 	"net"
 	"strconv"
@@ -34,13 +35,13 @@ func (*server) PrimeNumberDecomposition(req *calculatorpb.PrimeNumberDecompositi
 
 	for N > 1 {
 		if N%k == 0 { // if k evenly divides into N
-			
+
 			// strconv.Itoa converst an integer to a string
 			result := "N = " + strconv.Itoa(N) + " Value = " + strconv.Itoa(k)
 			res := &calculatorpb.PrimeNumberDecompositionResponse{
 				Result: result,
 			}
-	
+
 			stream.Send(res)
 			time.Sleep(1000 + time.Second)
 
@@ -49,9 +50,29 @@ func (*server) PrimeNumberDecomposition(req *calculatorpb.PrimeNumberDecompositi
 			k = k + 1
 		}
 
-
 	}
 	return nil
+}
+
+func (*server) ComputeAverage(stream calculatorpb.CalculatorService_ComputeAverageServer) error {
+	fmt.Printf("Received ComputeAverage RPC\n")
+
+	sum := 0
+	count := 0
+	for {
+		req, err := stream.Recv()
+		if err == io.EOF {
+			average := sum / count
+			return stream.SendAndClose(&calculatorpb.ComputeAverageResponse{
+				Average: float64(average),
+			})
+		}
+		if err != nil {
+			log.Fatalf("Error while reading client stream: %v", err)
+		}
+		sum += int(req.GetNumber())
+		count++
+	}
 }
 
 func main() {
